@@ -14,7 +14,8 @@ class PaymentServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(PaymentInterface::class, function ($app){
-            $method = request()->input('payment_method');
+            // $method = request()->input('payment_method');
+            $method = 'bkash';
             return match($method){
                 'bkash' => new BkashPayment()
             };

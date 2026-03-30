@@ -1,13 +1,18 @@
 <?php
 
 namespace App\Payment;
+
 use App\Payment\Contracts\PaymentInterface;
 
 class BkashPayment implements PaymentInterface
 {
-    public function processPayment($amount, $currency, $paymentMethod)
+    public function processPayment($amount, $currency)
     {
-        return "Processing Bkash payment of $amount $currency using $paymentMethod.";
+        return [
+            'status' => 'success',
+            'method' => 'bKash',
+            'amount' => $amount,
+            'currency' => $currency
+        ];
     }
-
 }
