@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Payment\BkashPayment;
 use App\Payment\Contracts\PaymentInterface;
+use App\Payment\SSLPayment;
 use Illuminate\Support\ServiceProvider;
 
 class PaymentServiceProvider extends ServiceProvider
@@ -14,10 +15,11 @@ class PaymentServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(PaymentInterface::class, function ($app){
-            // $method = request()->input('payment_method');
-            $method = 'bkash';
+            $method = request()->input('payment_method');
+            // $method = 'bkash';
             return match($method){
-                'bkash' => new BkashPayment()
+                'bkash' => new BkashPayment(),
+                'ssl' => new SSLPayment(),
             };
         });
     }

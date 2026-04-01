@@ -20,6 +20,9 @@ class OrderController extends Controller
     public function placeOrder()
     {
 
+    /// User or customer[customer ID] and order details[Order ID, Amount, Currency, Payment method etc]
+    /// 
+
     $amount = 40000;
     $crurrency = 'USD';
    
