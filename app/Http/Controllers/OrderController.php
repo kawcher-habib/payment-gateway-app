@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Payment\Contracts\PaymentInterface;
+use App\Payment\PaymentFactory;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -17,16 +18,18 @@ class OrderController extends Controller
 
 
 
-    public function placeOrder()
+    public function placeOrder(Request $request)
     {
 
     /// User or customer[customer ID] and order details[Order ID, Amount, Currency, Payment method etc]
     /// 
 
+    $payment = PaymentFactory::make($request->payment_method);
+    
     $amount = 40000;
     $crurrency = 'USD';
    
-        $result = $this->payment->processPayment($amount, $crurrency);
+        $result = $payment->processPayment($amount, $crurrency);
         return response()->json($result);
     }
 

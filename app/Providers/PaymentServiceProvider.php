@@ -14,14 +14,15 @@ class PaymentServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(PaymentInterface::class, function ($app){
-            $method = request()->input('payment_method');
-            // $method = 'bkash';
-            return match($method){
-                'bkash' => new BkashPayment(),
-                'ssl' => new SSLPayment(),
-            };
-        });
+        // $this->app->bind(PaymentInterface::class, function ($app){
+        //     $method = request()->input('payment_method');
+        //     // $method = 'bkash';
+        //     return match($method){
+        //         'bkash' => new BkashPayment(),
+        //         'ssl' => new SSLPayment(),
+        //         default => throw new \Exception("Invalid payment method")
+        //     };
+        // });
     }
 
     /**
