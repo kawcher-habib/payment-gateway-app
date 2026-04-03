@@ -3,5 +3,5 @@
 namespace App\Payment\Contracts;
 
 interface PaymentInterface{
-    public function processPayment($amount, $currency);
+    public function processPayment($data);
 }

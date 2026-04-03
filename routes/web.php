@@ -8,4 +8,4 @@ Route::get('/', function () {
 });
 
 
-Route::get('/place-order', [OrderController::class, 'placeOrder']);
+Route::post('/place-order', [OrderController::class, 'placeOrder']);
