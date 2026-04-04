@@ -18,7 +18,7 @@ class SSLPayment implements PaymentInterface
     public function processPayment($data)
     {
 
-// dd($data);
+        // dd($data);
 
         $body = [
             'store_id' => $this->config['store_id'],
@@ -30,10 +30,11 @@ class SSLPayment implements PaymentInterface
             'fail_url' => $this->config['callback_url'],
             'cancel_url' => $this->config['callback_url'],
             'cus_name' => 'John Doe',
-            'cus_email' => 'john.doe@example.com'
+            'cus_email' => 'john.doe@example.com',
+            'cus_add1' => 'Dhaka'
         ];
 
-        $respone = Http::asForm()->post($this->config['base_url'] . '/gwprocess/v4/api.php', $body);
+        $respone = Http::withOptions(['verify' => false])->asForm()->post($this->config['base_url'] . '/gwprocess/v4/api.php', $body);
         return $respone->json();
     }
 }
