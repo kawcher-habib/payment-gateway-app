@@ -5,6 +5,11 @@ return [
         'api_secret' => env('BKASH_API_SECRET'),
         'callback_url' => env('BKASH_CALLBACK_URL')
     ],
+    'nagad' => [
+        'api_key' => env('NAGAD_API_KEY'),
+        'api_secret' => env('NAGAD_API_SECRET'),
+        'callback_url' => env('NAGAD_CALLBACK_URL')
+    ],
     'ssl' => [
         'store_id' => env('SSL_STORE_ID'),
         'store_password' => env('SSL_STORE_PASSWORD'),
