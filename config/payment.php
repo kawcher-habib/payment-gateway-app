@@ -16,4 +16,9 @@ return [
         'base_url' => env('SSL_BASE_URL'),
         'callback_url' => env('SSL_CALLBACK_URL')
     ],
+    'stripe' => [
+        'api_key' => env('STRIPE_API_KEY'),
+        'api_secret' => env('STRIPE_API_SECRET'),
+
+    ]
 ];
