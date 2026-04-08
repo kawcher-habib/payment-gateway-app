@@ -40,4 +40,14 @@ class OrderController extends Controller
         return response()->json($result);
     }
 
+
+    public function paymentCallback(Request $request)
+    {
+        // Handle the payment gateway callback here
+        // You can verify the payment status and update your order accordingly
+
+        // For demonstration, we'll just return the received data
+        return response()->json($request->all());
+    }
+
 }
