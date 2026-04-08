@@ -12,3 +12,4 @@ Route::get('/user', function (Request $request) {
 
 
 Route::post('/place-order', [OrderController::class, 'placeOrder']);
+Route::post('/payment-callback', [OrderController::class, 'paymentCallback']);
