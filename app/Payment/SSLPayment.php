@@ -34,7 +34,10 @@ class SSLPayment implements PaymentInterface
             'cus_add1' => 'Dhaka'
         ];
 
-        $respone = Http::withOptions(['verify' => false])->asForm()->post($this->config['base_url'] . '/gwprocess/v4/api.php', $body);
-        return $respone->json();
+        $response = Http::withOptions(['verify' => false])->asForm()->post($this->config['base_url'] . '/gwprocess/v4/api.php', $body);
+        if($response['status'] != 'SUCCESS'){
+            throw new \Exception("Payment initiation failed: " . $response['failedreason']);
+        }
+        return $response->json();
     }
 }
