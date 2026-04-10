@@ -15,7 +15,7 @@ class EnsureTokenIsValid
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if($request->input('token') !== 'valid-token') {
+        if($request->input('token') !== 'test') {
             return response()->json(['error' => 'Invalid token'], 401);
         }
         return $next($request);
