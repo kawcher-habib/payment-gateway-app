@@ -12,6 +12,6 @@ Route::get('/user', function (Request $request) {
 
 Route::middleware('token')->group(function () {
 
-    Route::post('/place-order', [OrderController::class, 'placeOrder']);
     Route::post('/payment-callback', [OrderController::class, 'paymentCallback']);
-});
+    });
+    Route::post('/place-order', [OrderController::class, 'placeOrder']);

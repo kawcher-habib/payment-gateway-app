@@ -61,7 +61,8 @@ class OrderController extends Controller
                 'gateway' => $data['gateway'] ?? 'ssl', // assuming SSL
                 'tran_id' => $data['tran_id'] ?? null,
                 'status' => 1, // success
-            ]);
+            ]); 
+            
 
             // Return response JSON with user log for back-end developer
             return response()->json([
@@ -78,6 +79,21 @@ class OrderController extends Controller
                 'data' => $data
             ]);
         }
+    }
+
+    public function cancleOrder(Request $request)
+    {
+        // Implement order cancellation logic here
+    }
+
+    public function refundOrder(Request $request)
+    {
+        // Implement order refund logic here
+    }
+
+    public function getOrderStatus(Request $request)
+    {
+        // Implement order status retrieval logic here
     }
 
 }
